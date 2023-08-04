@@ -14,12 +14,8 @@ public class HolaMundo {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int a = 10;
-		int b = 3;
-		int cociente = a / b;
-		int resto = a % b;
-		System.out.println("cociente : " + cociente);
-		System.out.println("resto : " + resto);
+		int edad = 10;
+		System.out.println(edad);
 	}
 
 }
