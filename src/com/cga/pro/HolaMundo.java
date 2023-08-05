@@ -20,6 +20,7 @@ public class HolaMundo {
 		int resto = a % b;
 		System.out.println("cociente : " + cociente);
 		System.out.println("resto : " + resto);
+		System.out.println("Hola Mundo!");
 	}
 
 }
