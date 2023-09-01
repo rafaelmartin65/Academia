@@ -13,27 +13,32 @@ public class Aeropuerto {
 
 	// Declare arguments
 	private String nombre;
+	private Direccion direccion;
 	private int anioInauguracion;
 	private int capacidad;
 	
 	// Constructor
 	public Aeropuerto() {
-//		this.nombre = "";
-//		this.pais = "";
-//		this.calle = "";
-//		this.numero = 0;
-//		this.ciudad = "";
-//		this.anioInauguracion = 0;
-//		this.capacidad = 0;	
+
 	}
 	
-	public Aeropuerto(String nombre, String pais, String calle, int numero, String ciudad, int anioInauguracion, int capacidad) {
+
+	public Aeropuerto(String nombre, Direccion direccion, int anioInauguracion, int capacidad) {
+		//super();
 		this.nombre = nombre;
+		this.direccion = direccion;
 		this.anioInauguracion = anioInauguracion;
-		this.capacidad = capacidad;	
+		this.capacidad = capacidad;
 	}
 
-	//
+	public Aeropuerto(String nombre, String pais, String calle, int numero, String ciudad, int anioInauguracion, int capacidad) {
+		this.nombre = nombre;
+		this.direccion = new Direccion(pais, calle, numero, ciudad);
+		this.anioInauguracion = anioInauguracion;
+		this.capacidad = capacidad;
+	}
+
+	//Calcular años operativo
 	public int aniosAbierto() {
 		
 		// obtain actual year
@@ -54,37 +59,6 @@ public class Aeropuerto {
 		this.nombre = nombre;
 	}
 
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-	public String getCalle() {
-		return calle;
-	}
-
-	public void setCalle(String calle) {
-		this.calle = calle;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public String getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
 
 	public int getAnoInauguracion() {
 		return anioInauguracion;
@@ -104,9 +78,11 @@ public class Aeropuerto {
 
 	@Override
 	public String toString() {
-		return "Aeropuerto [nombre=" + nombre + ", pais=" + pais + ", calle=" + calle + ", numero=" + numero
-				+ ", ciudad=" + ciudad + ", anoInauguracion=" + anioInauguracion + ", capacidad=" + capacidad + "]";
+		return "Aeropuerto [nombre=" + nombre + ", anioInauguracion=" + anioInauguracion + ", capacidad=" + capacidad
+				+ "]";
 	}
+
+
 	
 	
 	
