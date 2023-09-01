@@ -10,12 +10,18 @@ import java.util.Calendar;
  *
  */
 public class Aeropuerto {
+	// Variable final
+	private final int MAX_AVIONES = 1;
 
 	// Declare arguments
 	private String nombre;
 	private Direccion direccion;
 	private int anioInauguracion;
 	private int capacidad;
+	
+	// Nuevo atributo
+	private Avion[] aviones;
+	private int numAviones;
 	
 	// Constructor
 	public Aeropuerto() {
@@ -29,6 +35,9 @@ public class Aeropuerto {
 		this.direccion = direccion;
 		this.anioInauguracion = anioInauguracion;
 		this.capacidad = capacidad;
+		
+		this.aviones = new Avion [MAX_AVIONES];
+		this.numAviones = 0;
 	}
 
 	public Aeropuerto(String nombre, String pais, String calle, int numero, String ciudad, int anioInauguracion, int capacidad) {
@@ -36,6 +45,9 @@ public class Aeropuerto {
 		this.direccion = new Direccion(pais, calle, numero, ciudad);
 		this.anioInauguracion = anioInauguracion;
 		this.capacidad = capacidad;
+		
+		this.aviones = new Avion [MAX_AVIONES];
+		this.numAviones = 0;
 	}
 
 	//Calcular años operativo
@@ -77,6 +89,16 @@ public class Aeropuerto {
 	}
 
 
+	public int getNumAviones() {
+		return numAviones;
+	}
+
+
+//	public void setNumAviones(int numAviones) {
+//		this.numAviones = numAviones;
+//	}
+
+
 	@Override
 	public String toString() {
 		return "Aeropuerto [nombre=" + nombre + ", direccion=" + direccion.toString() + ", anioInauguracion=" + anioInauguracion
@@ -84,9 +106,32 @@ public class Aeropuerto {
 	}
 
 	
+	public void AniadirAvion(Avion a) {
+		
+		try {
+			if (numAviones <= MAX_AVIONES) {
+				this.aviones[numAviones] = a;
+				numAviones++;
+				
+				
+			}else {
+				System.out.println("no se puede añadir mas aviones!!! está full...");
+			}
+		}catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("muchos aviones, sólo podemos añadir " + MAX_AVIONES + " error --> " + e.getMessage());
+		}
+	}
 
-
-	
+	public String MostrarAvion() {
+		String avionesCadena = "";
+		
+			for (int i = 0; i < numAviones; i++) {
+				avionesCadena += this.aviones[i].toString() + "\n";
+			}
+		
+		return avionesCadena;
+		
+	}
 	
 	
 	
